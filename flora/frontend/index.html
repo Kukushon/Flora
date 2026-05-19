@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florа — интернет-магазин цветов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header__inner container">
+    <a href="#" class="logo">Florа</a>
+    <nav class="nav">
+      <a href="#catalog" class="nav__link">Каталог</a>
+      <a href="#about" class="nav__link">О нас</a>
+      <a href="#delivery" class="nav__link">Доставка</a>
+    </nav>
+    <div class="header__actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Поиск">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="icon-btn cart-btn" id="cartBtn" aria-label="Корзина">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg">
+    <div class="hero__circle hero__circle--1"></div>
+    <div class="hero__circle hero__circle--2"></div>
+    <div class="hero__circle hero__circle--3"></div>
+  </div>
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="hero__eyebrow">Краснодар · Доставка за 2 часа</p>
+      <h1 class="hero__title">Цветы, которые<br/><em>говорят больше слов</em></h1>
+      <p class="hero__desc">Свежие букеты ручной сборки. Каждый день с 8:00 до 22:00.</p>
+      <div class="hero__btns">
+        <a href="#catalog" class="btn btn--primary">Выбрать букет</a>
+        <a href="#delivery" class="btn btn--ghost">Условия доставки</a>
+      </div>
+    </div>
+    <div class="hero__card-wrap">
+      <div class="hero__card">
+        <div class="hero__card-img">🌸</div>
+        <p class="hero__card-label">Хит этой недели</p>
+        <p class="hero__card-name">Нежность пиона</p>
+        <p class="hero__card-price">3 200 ₽</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features container">
+  <div class="feature">
+    <div class="feature__icon">🌿</div>
+    <p class="feature__title">Только свежие</p>
+    <p class="feature__desc">Цветы поступают ежедневно от проверенных поставщиков</p>
+  </div>
+  <div class="feature">
+    <div class="feature__icon">⚡</div>
+    <p class="feature__title">Доставка 2 часа</p>
+    <p class="feature__desc">Курьеры по всему Краснодару, 7 дней в неделю</p>
+  </div>
+  <div class="feature">
+    <div class="feature__icon">✍️</div>
+    <p class="feature__title">Открытка в подарок</p>
+    <p class="feature__desc">Добавьте личное сообщение к любому заказу</p>
+  </div>
+  <div class="feature">
+    <div class="feature__icon">🔄</div>
+    <p class="feature__title">Замена гарантирована</p>
+    <p class="feature__desc">Не понравится — заменим или вернём деньги</p>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Каталог</h2>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-cat="all">Все</button>
+        <button class="filter-btn" data-cat="bouquet">Букеты</button>
+        <button class="filter-btn" data-cat="mono">Монобукеты</button>
+        <button class="filter-btn" data-cat="plant">Растения</button>
+        <button class="filter-btn" data-cat="gift">Подарочные</button>
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-bar" id="searchBar" style="display:none;">
+      <input type="text" class="search-input" id="searchInput" placeholder="Поиск по названию..." />
+    </div>
+
+    <div class="products" id="products">
+      <!-- JS renders cards here -->
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container about__inner">
+    <div class="about__text">
+      <h2 class="section-title">О нас</h2>
+      <p>Florа — цветочная мастерская в Краснодаре. С 2018 года мы создаём букеты для особых моментов: признаний, поздравлений, просто так.</p>
+      <p>Каждый букет собирается вручную нашими флористами из свежих цветов. Мы работаем напрямую с фермами, поэтому цены ниже, а цветы живут дольше.</p>
+      <div class="stats">
+        <div class="stat"><span class="stat__num">6+</span><span class="stat__label">лет работы</span></div>
+        <div class="stat"><span class="stat__num">12k+</span><span class="stat__label">заказов</span></div>
+        <div class="stat"><span class="stat__num">4.9★</span><span class="stat__label">рейтинг</span></div>
+      </div>
+    </div>
+    <div class="about__visual">
+      <div class="about__emoji">💐</div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section class="delivery" id="delivery">
+  <div class="container">
+    <h2 class="section-title">Доставка и оплата</h2>
+    <div class="delivery__grid">
+      <div class="delivery__card">
+        <p class="delivery__icon">🕐</p>
+        <p class="delivery__title">Стандартная</p>
+        <p class="delivery__price">300 ₽</p>
+        <p class="delivery__desc">В течение дня, выбираете удобный 2-часовой интервал</p>
+      </div>
+      <div class="delivery__card delivery__card--accent">
+        <p class="delivery__icon">⚡</p>
+        <p class="delivery__title">Экспресс</p>
+        <p class="delivery__price">600 ₽</p>
+        <p class="delivery__desc">За 2 часа с момента заказа, доступно с 9:00 до 20:00</p>
+      </div>
+      <div class="delivery__card">
+        <p class="delivery__icon">🎁</p>
+        <p class="delivery__title">Бесплатно</p>
+        <p class="delivery__price">от 5 000 ₽</p>
+        <p class="delivery__desc">При заказе на сумму от 5 000 ₽ доставка в подарок</p>
+      </div>
+    </div>
+    <p class="delivery__note">Оплата: картой онлайн, наличными или картой курьеру. Работаем ежедневно 8:00–22:00.</p>
+  </div>
+</section>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer__head">
+    <h3>Корзина</h3>
+    <button class="icon-btn" id="cartClose" aria-label="Закрыть">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="cart-drawer__items" id="cartItems">
+    <p class="cart-empty">Корзина пуста</p>
+  </div>
+  <div class="cart-drawer__footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span>Итого</span>
+      <span id="cartTotal">0 ₽</span>
+    </div>
+    <button class="btn btn--primary btn--full" id="orderBtn">Оформить заказ</button>
+  </div>
+</aside>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="orderModal">
+    <button class="modal__close icon-btn" id="modalClose" aria-label="Закрыть">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal__steps">
+      <div class="step active" data-step="1">1</div>
+      <div class="step-line"></div>
+      <div class="step" data-step="2">2</div>
+      <div class="step-line"></div>
+      <div class="step" data-step="3">3</div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="modal__page" id="page1">
+      <h3 class="modal__title">Получатель</h3>
+      <div class="form-group">
+        <label>Имя получателя</label>
+        <input type="text" id="recipientName" placeholder="Мария Иванова" />
+      </div>
+      <div class="form-group">
+        <label>Телефон</label>
+        <input type="tel" id="recipientPhone" placeholder="+7 900 000-00-00" />
+      </div>
+      <div class="form-group">
+        <label>Сообщение на открытке (необязательно)</label>
+        <textarea id="cardMessage" placeholder="С днём рождения! ..." rows="3"></textarea>
+      </div>
+      <button class="btn btn--primary btn--full" onclick="goStep(2)">Далее →</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="modal__page" id="page2" style="display:none;">
+      <h3 class="modal__title">Доставка</h3>
+      <div class="form-group">
+        <label>Адрес доставки</label>
+        <input type="text" id="address" placeholder="ул. Красная, д. 1, кв. 5" />
+      </div>
+      <div class="form-group">
+        <label>Дата доставки</label>
+        <input type="date" id="deliveryDate" />
+      </div>
+      <div class="form-group">
+        <label>Интервал доставки</label>
+        <select id="timeSlot">
+          <option value="08-10">08:00 – 10:00</option>
+          <option value="10-12">10:00 – 12:00</option>
+          <option value="12-14">12:00 – 14:00</option>
+          <option value="14-16">14:00 – 16:00</option>
+          <option value="16-18">16:00 – 18:00</option>
+          <option value="18-20">18:00 – 20:00</option>
+          <option value="20-22">20:00 – 22:00</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Тип доставки</label>
+        <div class="radio-group">
+          <label class="radio"><input type="radio" name="delivType" value="standard" checked /> Стандартная — 300 ₽</label>
+          <label class="radio"><input type="radio" name="delivType" value="express" /> Экспресс — 600 ₽</label>
+        </div>
+      </div>
+      <div class="modal__nav">
+        <button class="btn btn--ghost" onclick="goStep(1)">← Назад</button>
+        <button class="btn btn--primary" onclick="goStep(3)">Далее →</button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="modal__page" id="page3" style="display:none;">
+      <h3 class="modal__title">Подтверждение</h3>
+      <div class="order-summary" id="orderSummary"></div>
+      <div class="form-group">
+        <label>Способ оплаты</label>
+        <div class="radio-group">
+          <label class="radio"><input type="radio" name="payment" value="card" checked /> 💳 Карта онлайн</label>
+          <label class="radio"><input type="radio" name="payment" value="cash" /> 💵 Наличными курьеру</label>
+        </div>
+      </div>
+      <div class="modal__nav">
+        <button class="btn btn--ghost" onclick="goStep(2)">← Назад</button>
+        <button class="btn btn--primary" onclick="placeOrder()">Оплатить заказ</button>
+      </div>
+    </div>
+
+    <!-- Success -->
+    <div class="modal__page modal__success" id="pageSuccess" style="display:none;">
+      <div class="success-icon">✅</div>
+      <h3>Заказ принят!</h3>
+      <p>Наш менеджер позвонит вам в течение 15 минут для подтверждения.</p>
+      <button class="btn btn--primary btn--full" onclick="closeModal()">Закрыть</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <p class="logo">Florа</p>
+      <p class="footer__tagline">Цветы с душой, с 2018 года</p>
+    </div>
+    <div>
+      <p class="footer__heading">Контакты</p>
+      <p>+7 (861) 000-00-00</p>
+      <p>floral@example.ru</p>
+      <p>Краснодар, ул. Красная, 1</p>
+    </div>
+    <div>
+      <p class="footer__heading">Режим работы</p>
+      <p>Пн–Вс: 8:00 – 22:00</p>
+      <p>Доставка без выходных</p>
+    </div>
+  </div>
+  <p class="footer__copy">© 2026 Florа. Курсовой проект КубГУ.</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
