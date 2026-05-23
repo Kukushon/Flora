@@ -1,4 +1,3 @@
-// Используем встроенный модуль node:sqlite (доступен с Node.js 22.5+)
 const { DatabaseSync } = require('node:sqlite');
 const path = require('path');
 
