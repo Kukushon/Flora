@@ -3,10 +3,6 @@ const router  = express.Router();
 const { getDb } = require('../db/database');
 
 // ── GET /api/products ─────────────────────────────────────────────────────
-// Параметры запроса (необязательные):
-//   ?category=bouquet   — фильтр по категории
-//   ?search=роза        — поиск по названию
-//   ?inStock=1          — только в наличии
 router.get('/', (req, res) => {
   try {
     const db = getDb();
@@ -59,7 +55,6 @@ router.get('/:id', (req, res) => {
 });
 
 // ── POST /api/products ────────────────────────────────────────────────────
-// Добавление нового товара (для будущей админки)
 router.post('/', (req, res) => {
   try {
     const db = getDb();
