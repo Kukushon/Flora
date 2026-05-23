@@ -10,7 +10,7 @@ const app  = express();
 const PORT = process.env.PORT || 3001;
 
 // ── Middleware ────────────────────────────────────────────────────────────
-app.use(cors({ origin: '*' }));          // разрешаем запросы с фронта
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 // ── Отдаём статику фронта (html/css/js) ──────────────────────────────────
