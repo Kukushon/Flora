@@ -14,7 +14,6 @@ app.use(cors({ origin: '*' }));          // разрешаем запросы с
 app.use(express.json());
 
 // ── Отдаём статику фронта (html/css/js) ──────────────────────────────────
-// Папка frontend должна находиться рядом с папкой backend
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 // ── API маршруты ──────────────────────────────────────────────────────────
@@ -22,7 +21,7 @@ app.use('/api/products', productsRouter);
 app.use('/api/orders',   ordersRouter);
 
 // ── Запуск ────────────────────────────────────────────────────────────────
-initDb();   // создаём таблицы при первом старте
+initDb();
 
 app.listen(PORT, () => {
   console.log(`✅ Сервер запущен: http://localhost:${PORT}`);
